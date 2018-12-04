@@ -1,0 +1,9 @@
+{% extends 'zoo/base.html' %}
+
+{% block body %}
+    {% for animal in animals %}
+        <a href="{% url 'animal_detail' id=animal.pk %}">{{ animal.name }}</a>
+        <p>{{ animal.description }}</p>
+{#        <img src="{{animal.image.url}}">#}
+    {% endfor %}
+{% endblock %}
