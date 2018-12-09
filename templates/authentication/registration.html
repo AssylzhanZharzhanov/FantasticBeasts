@@ -1,0 +1,10 @@
+{% extends 'zoo/base.html' %}
+
+{% block body %}
+<form class="form-horizontal" role="form" action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" name="submit" value="Submit" class="btn btn-success">
+</form>
+
+{% endblock %}
