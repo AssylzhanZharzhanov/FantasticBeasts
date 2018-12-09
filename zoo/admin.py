@@ -1,5 +1,13 @@
 from django.contrib import admin
-from .models import Animal
-# Register your models here.
+from .models import Beast
 
-admin.site.register(Animal)
+
+class BeastAdmin(admin.ModelAdmin):
+    list_display = ('name', 'type', 'description', 'image', 'views')
+    list_filter = ('type', 'name',)
+    search_fields = ('name', 'type',)
+    ordering = ['views']
+
+
+admin.site.register(Beast, BeastAdmin)
+

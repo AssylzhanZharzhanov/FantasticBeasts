@@ -20,6 +20,8 @@ from django.urls import path, include
 from DjangoProject import settings
 
 urlpatterns = [
+    path(r'^accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
-    path('', include('zoo.urls'))
+    path('', include('zoo.urls')),
+    path('', include('authentication.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

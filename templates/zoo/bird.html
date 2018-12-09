@@ -2,8 +2,8 @@
 
 {% block body %}
     {% for bird in birds %}
-        <a href="{% url 'bird_detail' id=animal.pk %}">{{ animal.name }}</a>
-        <p>{{ animal.description }}</p>
+        <a href="{% url 'bird_detail' id=bird.pk %}">{{ bird.name }}</a>
+        <p>{{ bird.description }}</p>
 {#        <img src="{{animal.image.url}}">#}
     {% endfor %}
 {% endblock %}
