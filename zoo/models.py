@@ -6,7 +6,7 @@ class Beast(models.Model):
     description = models.CharField(max_length=150)
     image = models.ImageField(blank=True, null=True)
     views = models.IntegerField(default=0)
-
+    price = models.IntegerField(default=0)
     Animal = 'Animal'
     Bird = 'Bird'
     Insect = 'Insect'

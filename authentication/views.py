@@ -28,7 +28,7 @@ class UserForm(View):
             if user is not None:
                 if user.is_active:
                     login(request,user)
-                    return redirect('index')
+                    return redirect('/')
 
         return render(request, self.template_name, {'form': form})
 
