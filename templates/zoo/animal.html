@@ -1,9 +1,22 @@
 {% extends 'zoo/base.html' %}
 
 {% block body %}
-    {% for animal in animals %}
-        <a href="{% url 'animal_detail' id=animal.pk %}">{{ animal.name }}</a>
-        <p>{{ animal.description }}</p>
-{#        <img src="{{animal.image.url}}">#}
-    {% endfor %}
+    <section>
+     <div class="container-fluid" style="margin-top: 70px">
+         <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10">
+                {% for animal in animals %}
+                    <div class="card" style="width:300px">
+                    <img class="card-img-bottom" src="{{animal.image.url}}" alt="Card image" width="100px" height="200px">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ animal.name }}</h4>
+                        <a href="{% url 'animal_detail' id=animal.pk %}" class="btn btn-primary">See Product</a>
+                    </div>
+                    </div>
+                {% endfor %}
+            </div>
+         </div>
+    </div>
+    </section>
 {% endblock %}

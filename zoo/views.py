@@ -3,6 +3,7 @@ from .models import Beast
 
 
 def index(request):
+
     return render(request, 'zoo/index.html')
 
 
@@ -13,7 +14,9 @@ def animal(request):
 
 def animal_detail(request, id):
     animal = Beast.objects.get(id=id)
-    return  render(request, 'zoo/animal_detail.html', {'animal': animal})
+    animal.views += 1
+    animal.save()
+    return render(request, 'zoo/animal_detail.html', {'animal': animal})
 
 
 def birds(request):
@@ -23,7 +26,9 @@ def birds(request):
 
 def bird_detail(request, id):
     bird = Beast.objects.get(id=id)
-    return render(request, 'zoo/bird_detail.html', {'birds': bird})
+    bird.views += 1
+    bird.save()
+    return render(request, 'zoo/bird_detail.html', {'bird': bird})
 
 
 def cart(request):

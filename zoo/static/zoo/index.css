@@ -1,0 +1,44 @@
+ .carousel-item-img {
+     background-size: cover;
+     width: 100%;
+     background-position: center;
+     height: 100vh;
+  }
+
+ .popular-beasts{
+     height: 280px;
+ }
+
+.row-equal > div[class*='col-'] {
+    display: flex;
+    flex: 1 0 auto;
+}
+
+.row-equal .card {
+   width: 100%;
+}
+
+.carousel-inners>.row-equal.active,
+.carousel-inners>.row-equal.next,
+.carousel-inners>.row-equal.prev {
+    display: flex;
+}
+
+.carousel-inners>.row-equal.active.left,
+.carousel-inners>.row-equal.active.right {
+    opacity: 0.5;
+    display: flex;
+}
+
+
+.card-img-top-250 {
+    max-height: 250px;
+    overflow:hidden;
+}
+
+.py-3{
+    margin-top: 150px;
+    left: 0;
+    bottom: 0;
+    width:100%;
+}

@@ -1,8 +1,10 @@
 {% extends 'zoo/base.html' %}
 
 {% block body %}
+   <div class="container-fluid" style="margin-top: 70px">
     {{ bird.name }}
     {{ bird.description }}
     {{ bird.image.url}}
+   </div>
 {% endblock %}
 
