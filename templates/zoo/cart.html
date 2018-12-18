@@ -4,8 +4,20 @@
 
     <div class="container" style="margin-top: 70px">
         <div class="row">
-
-
+            <div class="col-sm-2"></div>
+{#            <div class="col-sm-10">#}
+                  {% for item in items%}
+{#                      <p> {{ item.id }} </p>#}
+                    <div class="card" style="width:300px">
+                    <img class="card-img-bottom" src="{{item.image.url}}" alt="Card image" width="100px" height="300px" >
+                    <div class="card-body">
+                        <h4 class="card-title">{{ item.name }}</h4>
+{#                        <a href="{% url 'bird_detail' id=bird.pk %}" class="btn btn-primary">See Product</a>#}
+                    </div>
+                    </div>
+                {% endfor %}
+            </div>
+         </div>
         </div>
     </div>
 

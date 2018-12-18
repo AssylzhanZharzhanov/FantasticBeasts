@@ -10,18 +10,21 @@ class Beast(models.Model):
     Animal = 'Animal'
     Bird = 'Bird'
     Insect = 'Insect'
-    YEAR_IN_SCHOOL_CHOICES = (
+    TYPE_OF_ANIMALS = (
         (Animal, 'Animal'),
         (Bird, 'Bird'),
         (Insect, 'Insect'),
     )
     type = models.CharField(
         max_length=10,
-        choices=YEAR_IN_SCHOOL_CHOICES,
+        choices=TYPE_OF_ANIMALS,
     )
 
     def __str__(self):
         return self.name
+
+    def __unicode__(self):
+        return self.type
 
 # class Type(models.Model):
 #    type =

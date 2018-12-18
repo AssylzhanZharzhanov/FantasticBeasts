@@ -25,5 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('zoo.urls')),
     path('', include('authentication.urls')),
+    path('', include('shopping_cart.urls')),
     path('login/', auth_views.LoginView.as_view(template_name = "authentication/login.html"), name='login')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
