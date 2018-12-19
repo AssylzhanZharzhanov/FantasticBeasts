@@ -1,9 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Beast
+from django.db.models import Q
+
+
+def search(request):
+    if request.GET.get('search'):
+        search_value = request.GET['search']
+        animals = Beast.objects.filter(Q(name__icontains=search_value) | Q(name__startswith=search_value.upper()))
+        context = {'animals': animals, 'search_value': search_value}
+        return render(request, 'zoo/search.html', context)
+
+    # return render(request, 'zoo/search.html')
 
 
 def index(request):
-
     return render(request, 'zoo/index.html')
 
 
@@ -31,6 +41,14 @@ def bird_detail(request, id):
     return render(request, 'zoo/bird_detail.html', {'bird': bird})
 
 
-def cart(request):
-    return render(request, 'zoo/cart.html')
+def insect(request):
+    insects = Beast.objects.filter(type='Insect')
+    return render(request, 'zoo/insect.html', {'insects': insects})
+
+
+def insect_detail(request,id):
+    insect = Beast.objects.get(id=id)
+    insect.views += 1
+    insect.save()
+    return render(request, 'zoo/insect_detail.html', {'insect': insect})
 

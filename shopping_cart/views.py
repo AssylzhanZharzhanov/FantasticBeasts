@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect, reverse
+from django.shortcuts import render,redirect, reverse, get_object_or_404
 from .models import Cart
 from .models import Beast
 from django.contrib.auth.models import User
@@ -11,22 +11,23 @@ def add_to_cart(request,id):
     user_cart.save()
 
     if item.type == 'Animal':
-        return redirect('animals')
+        return redirect('/animals')
     elif item.type == 'Bird':
-        return redirect('birds')
+        return redirect('/birds')
     else:
-        return redirect('insects')
+        return redirect('/insects')
+
 
 def delete_from_cart(request, id):
     user_cart = Cart.objects.get(owner__username=request.user)
     item = Beast.objects.get(id=id)
     user_cart.items.remove(item)
     user_cart.save()
-    return cart(request)
+    return reverse('cart')
 
 
 def cart(request):
-    user_cart = Cart.objects.get(owner__username=request.user)
+    user_cart = get_object_or_404(Cart, owner__username=request.user)
     items = user_cart.items.all()
     amount_items = items.count()
     # 'amount': amount_items
