@@ -1,7 +1,7 @@
 {% extends 'zoo/base.html' %}
 
 {% block body %}
-    <div class="container" style="margin-top: 100px">
+    <div class="container" style="margin-top: 140px; height: 225px;">
         <div class="row">
             <div class="col-sm-3">
             <div align="middle" style="width: 200px; height: 200px;"> <img src="{{ insect.image.url}}" style="max-width: 100%; max-height: 100%;"> </div>
@@ -9,6 +9,10 @@
             <div class="col-sm-9">
                 <h1>{{insect.name}}</h1>
                 <p>{{insect.description}}</p>
+            </div>
+            <div class="mx-auto">
+{#                <a href="{% url 'animal_detail' id=animal.pk %}" class="btn btn-primary">See Product</a>#}
+                <a href="{% url 'add_to_cart' id=insect.pk %}" class="btn btn-warning">Add to Cart</a>
             </div>
         </div>
     </div>

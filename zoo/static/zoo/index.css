@@ -1,4 +1,11 @@
- .carousel-item-img {
+/*@font-face {*/
+    /*font-family: 'Harry Potter';*/
+    /*src: url('http://www.fontsaddict.com/fontface/harry-potter.TTF');*/
+/*}*/
+/*body{*/
+    /*font-family: 'Harry Potter', cursive;*/
+/*}*/
+.carousel-item-img {
      background-size: cover;
      width: 100%;
      background-position: center;
