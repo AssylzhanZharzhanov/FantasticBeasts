@@ -1,10 +1,17 @@
 {% extends 'zoo/base.html' %}
 
 {% block body %}
-    <div class="container-fluid" style="margin-top: 70px">
-    {{ animal.name }}
-    {{ animal.description }}
-    {{ animal.image.url}}
+    <div class="container" style="margin-top: 100px">
+        <div class="row">
+            <div class="col-sm-3">
+            <div align="middle" style="width: 200px; height: 200px;"> <img src="{{ animal.image.url}}" style="max-width: 100%; max-height: 100%;"> </div>
+            </div>
+            <div class="col-sm-9">
+                <h1>{{ animal.name }}</h1>
+                <p>{{ animal.description }}</p>
+            </div>
+        </div>
+
     </div>
 {% endblock %}
 

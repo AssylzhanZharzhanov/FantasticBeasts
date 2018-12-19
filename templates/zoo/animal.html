@@ -7,11 +7,14 @@
             <div class="col-sm-2"></div>
             <div class="col-sm-10">
                 {% for animal in animals %}
-                    <div class="card" style="width:300px">
-                    <img class="card-img-bottom" src="{{animal.image.url}}" alt="Card image" width="100px" height="200px">
+                    <div class="card" style="width:280px; float: left; margin-left:10px;">
+                   <div class="mx-auto d-block" style="width: 220px; height: 220px; margin-top: 10px">
+                       <img class="card-img" align="middle" src="{{animal.image.url}}" alt="Card image" style="max-width: 100%; max-height: 100%;">
+                   </div>
                     <div class="card-body">
                         <h4 class="card-title">{{ animal.name }}</h4>
                         <a href="{% url 'animal_detail' id=animal.pk %}" class="btn btn-primary">See Product</a>
+                        <a href="{% url 'add_to_cart' id=animal.pk %}" class="btn btn-primary">Add to Cart</a>
                     </div>
                     </div>
                 {% endfor %}

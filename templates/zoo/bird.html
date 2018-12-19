@@ -11,6 +11,7 @@
                     <div class="card-body">
                         <h4 class="card-title">{{ bird.name }}</h4>
                         <a href="{% url 'bird_detail' id=bird.pk %}" class="btn btn-primary">See Product</a>
+                        <a href="{% url 'add_to_cart' id=bird.pk %}" class="btn btn-primary">Add to Cart</a>
                     </div>
                     </div>
                 {% endfor %}
