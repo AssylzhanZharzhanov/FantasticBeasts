@@ -1,12 +1,13 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Beast
 from django.db.models import Q
+from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 
 
 def search(request):
     if request.GET.get('search'):
         search_value = request.GET['search']
-        animals = Beast.objects.filter(Q(name__icontains=search_value) | Q(name__startswith=search_value.upper()))
+        animals = Beast.objects.filter(Q(name__icontains=search_value) | Q(name__startswith=search_value[0].upper()))
         context = {'animals': animals, 'search_value': search_value}
         return render(request, 'zoo/search.html', context)
 
@@ -18,7 +19,12 @@ def index(request):
 
 
 def animal(request):
-    animals = Beast.objects.filter(type='Animal')
+    animals_list = Beast.objects.filter(type='Animal')
+    paginator = Paginator(animals_list, 4)
+
+    page = request.GET.get('page')
+    animals = paginator.get_page(page)
+
     return render(request, 'zoo/animal.html', {'animals': animals})
 
 
@@ -30,7 +36,12 @@ def animal_detail(request, id):
 
 
 def birds(request):
-    birds = Beast.objects.filter(type='Bird')
+    birds_list= Beast.objects.filter(type='Bird')
+    paginator = Paginator(birds_list, 4)
+
+    page = request.GET.get('page')
+    birds = paginator.get_page(page)
+
     return render(request, 'zoo/bird.html', {'birds': birds})
 
 
@@ -42,11 +53,15 @@ def bird_detail(request, id):
 
 
 def insect(request):
-    insects = Beast.objects.filter(type='Insect')
+    insects_list = Beast.objects.filter(type='Insect')
+    paginator = Paginator(insects_list, 4)
+
+    page = request.GET.get('page')
+    insects = paginator.get_page(page)
     return render(request, 'zoo/insect.html', {'insects': insects})
 
 
-def insect_detail(request,id):
+def insect_detail(request, id):
     insect = Beast.objects.get(id=id)
     insect.views += 1
     insect.save()

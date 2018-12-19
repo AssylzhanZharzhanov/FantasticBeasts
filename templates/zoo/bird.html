@@ -19,5 +19,25 @@
                 {% endfor %}
             </div>
          </div>
+           <div class="row" style="margin-top: 15px;">
+{#            <div class="col-sm-6"></div>#}
+            <div class="mx-auto pagination">
+                <span class="step-links">
+                    {% if birds.has_previous %}
+                        <a href="?page=1">&laquo; first</a>
+                        <a href="?page={{ birds.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ birds.number }} of {{ birds.paginator.num_pages }}.
+                    </span>
+
+                    {% if birds.has_next %}
+                        <a href="?page={{ birds.next_page_number }}">next</a>
+                        <a href="?page={{ birds.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
+         </div>
+        </div>
     </div>
 {% endblock %}
