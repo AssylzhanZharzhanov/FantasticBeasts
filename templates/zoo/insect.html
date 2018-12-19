@@ -2,15 +2,14 @@
 
 {% block body %}
     <section>
-     <div class="container-fluid" style="margin-top: 70px">
+     <div class="container-fluid" style="margin-top: 100px">
          <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-11">
+            <div class="mx-auto">
                 {% for insect in insects %}
-                    <div class="card" style="width:280px; float: left; margin-left:10px;">
-                   <div class="mx-auto d-block" style="width: 220px; height: 220px; margin-top: 10px">
-                       <img class="card-img" align="middle" src="{{insect.image.url}}" alt="Card image" style="max-width: 100%; max-height: 100%;">
-                   </div>
+                    <div class="card" style="height: 300px; width:280px; float: left; margin-left:10px;">
+                            <div class="card-img-top card-img-top-250">
+                            <img class="img-fluid" src="{{insect.image.url}}" alt="Carousel 1">
+                    </div>
                     <div class="card-body">
                         <h4 class="card-title">{{ insect.name }}</h4>
                         <a href="{% url 'animal_detail' id=insect.pk %}" class="btn btn-primary">See Product</a>

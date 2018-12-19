@@ -15,7 +15,11 @@ def search(request):
 
 
 def index(request):
-    return render(request, 'zoo/index.html')
+    beast_list = Beast.objects.all()[:3]
+    paginator = Paginator(beast_list, 4)
+    page = request.GET.get('page')
+    beasts = paginator.get_page(page)
+    return render(request, 'zoo/index.html', {'beasts': beasts})
 
 
 def animal(request):

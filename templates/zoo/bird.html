@@ -1,19 +1,18 @@
 {% extends 'zoo/base.html' %}
 
 {% block body %}
-    <div class="container-fluid" style="margin-top: 70px">
+    <div class="container-fluid" style="margin-top: 100px">
          <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-11">
+            <div class="mx-auto">
                   {% for bird in birds %}
-                      <div class="card" style="width:280px; float: left; margin-left:10px;">
-                           <div class="mx-auto d-block" style="width: 220px; height: 220px; margin-top: 10px">
-                               <img class="card-img" align="middle" src="{{bird.image.url}}" alt="Card image" style="max-width: 100%; max-height: 100%;">
-                           </div>
+                      <div class="card" style="height: 300px; width:280px; float: left; margin-left:10px;">
+                            <div class="card-img-top card-img-top-250">
+                            <img class="img-fluid" src="{{bird.image.url}}" alt="Carousel 1">
+                      </div>
                       <div class="card-body">
-                        <h4 class="card-title">{{ bird.name }}</h4>
-                        <a href="{% url 'bird_detail' id=bird.pk %}" class="btn btn-primary">See Product</a>
-                        <a href="{% url 'add_to_cart' id=bird.pk %}" class="btn btn-warning">Add to Cart</a>
+                            <h4 class="card-title">{{ bird.name }}</h4>
+                            <a href="{% url 'bird_detail' id=bird.pk %}" class="btn btn-primary">See Product</a>
+                            <a href="{% url 'add_to_cart' id=bird.pk %}" class="btn btn-warning">Add to Cart</a>
                     </div>
                     </div>
                 {% endfor %}
